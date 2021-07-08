@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="a76ef7cd-89ad-4b64-9813-abe5e16ce7a0" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Test Case 1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="a76ef7cd-89ad-4b64-9813-abe5e16ce7a0fileName">Test-Case-1</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="REST Request" id="d34aa958-1772-43b9-9aa9-769a7bf8ea8e">
+    <con:settings/>
+    <con:config service="GetLoadNinjaProjects" resourcePath="/project" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="a6e15dd8-5793-4ef2-b4dc-cb81c8a0eee8" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="authorization" value="a0a08180-b939-11eb-af11-592cb8bc5e77"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://api.loadninja.com/v1</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://api.loadninja.com/v1/project</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="a1386634-7202-4b4a-82a2-1f19fc6719b3" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="SwaggerComplianceAssertion" id="7ee7918c-eb2f-49fd-a5a4-88e4d5b8aaff" name="Swagger Compliance Assertion">
+          <con:configuration>
+            <swaggerUrl>https://apidocs.zee5.com/gwapi/Content/getContent/autosuggest.json</swaggerUrl>
+            <strictMode>true</strictMode>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="Data Source" id="012ba8bc-fd7e-47ef-bcb1-1860387cd26d" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>REST Request</sourceStep>
+          <sourceProperty>Response</sourceProperty>
+          <rowPath>$['data']</rowPath>
+          <columnPath>['projectId']</columnPath>
+          <columnPath>['projectName']</columnPath>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>ProjectId</con:property>
+      <con:property>ProjectName</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="Data Source Loop" id="be698512-9dba-4c36-924f-bc81d54fafbd" disabled="true">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>Data Source</dataSourceStep>
+      <targetStep>Data Sink</targetStep>
+      <discardResults>false</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasink" name="Data Sink" id="507550fd-01a9-4760-b9c5-4c34bd1c02bb" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSink type="Excel">
+        <con:configuration>
+          <file/>
+          <outfile>C:/Users/DESKTOP-707IVND/Desktop/ReadyAPI_Data_PetStore.xlsx</outfile>
+          <worksheet>DataSink</worksheet>
+          <cell>A2</cell>
+          <evaluateFormulas>false</evaluateFormulas>
+          <append>true</append>
+        </con:configuration>
+      </con:dataSink>
+      <con:properties>
+        <con:property>
+          <con:name>LoadNinja TestId</con:name>
+          <con:value>${Data Source#ProjectId}</con:value>
+        </con:property>
+        <con:property>
+          <con:name>Status</con:name>
+          <con:value>${Data Source#ProjectName}</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>012ba8bc-fd7e-47ef-bcb1-1860387cd26d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>507550fd-01a9-4760-b9c5-4c34bd1c02bb</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>be698512-9dba-4c36-924f-bc81d54fafbd</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

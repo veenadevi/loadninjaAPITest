@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="155dffcb-0c24-40ec-97a2-280ebba52c52" wadlVersion="http://wadl.dev.java.net/2009/02" name="GetLoadNinjaProjects" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="CreateWadlDocumentationAction@report-directory">D:\Lexington\SmartBearProducts\ReadyAPI\LoadNInjaDocumentation</con:setting>
+    <con:setting id="155dffcb-0c24-40ec-97a2-280ebba52c52fileName">GetLoadNinjaProjects</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart=""/>
+  <con:endpoints>
+    <con:endpoint>https://api.loadninja.com/v1</con:endpoint>
+  </con:endpoints>
+</con:interface>
