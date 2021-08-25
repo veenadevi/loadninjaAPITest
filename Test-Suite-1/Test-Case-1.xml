@@ -38,7 +38,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="Data Source" id="012ba8bc-fd7e-47ef-bcb1-1860387cd26d" disabled="true">
+  <con:testStep type="datasource" name="Data Source" id="012ba8bc-fd7e-47ef-bcb1-1860387cd26d">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="JSON">
@@ -54,10 +54,11 @@
       <con:restartShared>true</con:restartShared>
       <con:property>ProjectId</con:property>
       <con:property>ProjectName</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasourceloop" name="Data Source Loop" id="be698512-9dba-4c36-924f-bc81d54fafbd" disabled="true">
+  <con:testStep type="datasourceloop" name="Data Source Loop" id="be698512-9dba-4c36-924f-bc81d54fafbd">
     <con:settings/>
     <con:config>
       <dataSourceStep>Data Source</dataSourceStep>
@@ -65,7 +66,7 @@
       <discardResults>false</discardResults>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasink" name="Data Sink" id="507550fd-01a9-4760-b9c5-4c34bd1c02bb" disabled="true">
+  <con:testStep type="datasink" name="Data Sink" id="507550fd-01a9-4760-b9c5-4c34bd1c02bb">
     <con:settings/>
     <con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSink type="Excel">
@@ -88,6 +89,14 @@
           <con:value>${Data Source#ProjectName}</con:value>
         </con:property>
       </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="calltestcase" name="Run Test Case" id="b28ae94d-95c4-4c42-8d6d-ff0f15769b63" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties/>
+      <con:returnProperties/>
+      <con:runMode>PARALLELL</con:runMode>
     </con:config>
   </con:testStep>
   <con:properties/>

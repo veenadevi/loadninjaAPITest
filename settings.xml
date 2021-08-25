@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="024220b4-09ab-45df-b7e7-027335426fa5" created="3.8.0" activeEnvironment="Default environment" name="LoadNinjaAPIProject" updated="3.9.0" encryptionMode="Not encrypted" resourceRoot="" compositeProjectFormat="1.3" xmlns:con="http://eviware.com/soapui/config">
-  <con:settings/>
+<con:soapui-project id="024220b4-09ab-45df-b7e7-027335426fa5" created="3.8.0" activeEnvironment="Default environment" name="LoadNinjaAPIProject" updated="3.9.1" encryptionMode="Not encrypted" resourceRoot="${projectDir}" compositeProjectFormat="1.3" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="024220b4-09ab-45df-b7e7-027335426fa5fileName">LoadNinja_API_Run_Project</con:setting>
+  </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:requirements/>
   <con:properties/>
